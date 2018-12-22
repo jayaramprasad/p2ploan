@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+  
+	  
+	  
+	  $.ajax({
+			type: "POST",
+			url: "http://ec2-18-222-176-179.us-east-2.compute.amazonaws.com:8008/loan/v1/p2ploan",
+			data: json,
+			headers: {
+		        'Content-Type': 'application/json'
+		    },
+		    crossDomain: true,
+			dataType: "json"
+		}).done(function() { 
+			alert("Successfully Submitted the request"); 
+		}).fail( function(xhr) {
+			  alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' Response Text ' + xhr.responseText);
+			  alert('Request responseURL: ' + xhr.response);
+	     });
+  });
+});
+</script>
+</head>
+<body>
+
+<button>Send an HTTP GET request to a page and get the result back</button>
+
+</body>
+</html>
